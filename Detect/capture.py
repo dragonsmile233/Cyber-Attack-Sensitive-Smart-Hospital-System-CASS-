@@ -165,11 +165,22 @@ def extract_features1(pkt):
 
 def main():
     print('Start Monitoring......')
-    #sniffer = scapy.sniff(filter='host 10.70.5.245',prn=lambda x:x.summary())
-    sniffer = scapy.sniff(filter='tcp',prn=lambda x:x.show(),count=4)
-    print(sniffer)
-    #for pkt in sniffer:
-        #print(pkt)
+    
+    sniffer = scapy.sniff(filter='tcp',prn=lambda x:x.show(),count=5)
+    scapy.wrpcap('./packets.pcap',sniffer)
+
+    f = open('./packet.txt','a')
+    explain = '\n proto: tcp \n sbytes: Source to destination bytes \n dbytes: extract_dbytes(pkt) #Destination to source bytes \n sttl: Source to destination time to live \n dttl: Destination to source time to live \n sloss: Source packets retransmitted or dropped \n dloss: Destination packets retransmitted or dropped \n service: http, ftp, ssh, dns ..,else (-) \n is_ftp_login : If the ftp session is accessed by user and password then 1 else 0. \n ct_ftp_cmd : No of flows that has a command in ftp session. \n ct_srv_src : No. of connections that contain the same service (14) and source address (1) in 100 connections according to the last time (26). \n ct_srv_dst : No. of connections that contain the same service (14) and destination address (3) in 100 connections according to the last time (26). \n ct_dst_ltm : No. of connections of the same destination address (3) in 100 connections according to the last time (26). \n ct_src_ltm : No. of connections of the same source address (1) in 100 connections according to the last time (26). \n ct_src_dport_ltm : No of connections of the same source address (1) and the destination port (4) in 100 connections according to the last time (26). \n ct_dst_sport_ltm : No of connections of the same destination address (3) and the source port (2) in 100 connections according to the last time (26). \n ct_dst_src_ltm: No of connections of the same source (1) and the destination (3) address in in 100 connections according to the last time (26).\n Sload : Source bits per second \n Dload : Destination bits per second \n Spkts : Source to destination packet count \n Dpkts : Destination to source packet count \n swin : Source TCP window advertisement \n dwin : Destination TCP window advertisement \n stcpb : Source TCP sequence number \n dtcpb : Destination TCP sequence number \n smeansz : Mean of the flow packet size transmitted by the src \n dmeansz : Mean of the flow packet size transmitted by the dst \n trans_depth : the depth into the connection of http request/response transaction \n res_bdy_len : The content size of the data transferred from the server’s http service \n Sjit : Source jitter (mSec) \n Djit : Destination jitter (mSec) \n Stime : record start time \n Ltime : record last time \n Sintpkt : Source inter-packet arrival time (mSec) \n Dintpkt : Destination inter-packet arrival time (mSec) \n tcprtt : The sum of ’synack’ and ’ackdat’ of the TCP. \n synack : The time between the SYN and the SYN_ACK packets of the TCP. \n ackdat : The time between the SYN_ACK and the ACK packets of the TCP. \n is_sm_ips_ports : If source (1) equals to destination (3)IP addresses and port numbers (2)(4) are equal, this variable takes value 1 else 0 \n ct_state_ttl : No. for each state (6) according to specific range of values for source/destination time to live (10) (11). \n ct_flw_http_mthd : No. of flows that has methods such as Get and Post in http service.'
+    f.write("--------------------------------------------------Explain params-------------------------------------------------- \n")
+    f.write(explain)
+    f.write('\n')
+    f.write('--------------------------------------------------Packets captured-------------------------------------------------- \n')
+    f.write('\n')
+    for pkt in sniffer:
+        f.write(str(extract_feature_tcp(pkt,feature)))
+        f.write('\n')
+    f.close()
+
     print('Completed!')
 
 if __name__ == '__main__':
