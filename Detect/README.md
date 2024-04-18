@@ -21,6 +21,9 @@ Before data cleaning or model training, you can download data mentioned above an
 * [`result`](./result/): our trained model is saved here
     * [`detectThreat.h5`](./result/detectThreat.h5): Intrusion detection model
 
+* [`packet.txt`](./packet.txt): captured packets stored in txt
+* [`packets.pcap`](./packets.pcap): captured packets stored in pcap (for Wireshark analysis)
+  
 ## 💎 Installation and Requirements
 The code requires common Python environments for model training:
 - Python 3.11.5
