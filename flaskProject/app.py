@@ -581,9 +581,7 @@ def change_password():
 
             # Validate password and confirm password
             username = session.get('username')
-            # valid, message = validate_password(username, password, confirm_password)
-            valid = True
-            message = '1'
+            valid, message = validate_password(username, password, confirm_password)
             if not valid:
                 # If passwords are not valid, render the change_password template with an error message
                 return render_template('change_password.html', type=session.get('type'),
