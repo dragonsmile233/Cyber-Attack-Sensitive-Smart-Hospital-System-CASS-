@@ -1,6 +1,6 @@
 import sqlite3
 from datetime import datetime, timedelta
-
+from encryption_AES import encrypt_data
 import sqlite3
 from datetime import datetime, timedelta
 
@@ -87,9 +87,10 @@ def search_attempts(username):
 
 if __name__ == '__main__':
     create_tables()
-    username = 'example_user'
+    username = encrypt_data('Dr.TI')
     status_code = 400  # Example status code (401: Unauthorized)
     attempts = search_attempts(username)
+    print(attempts)
     check_and_update_login_attempts(username, status_code)
 
 

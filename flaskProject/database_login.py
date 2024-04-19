@@ -54,7 +54,7 @@ def search_data_patient_password(username):
 def search_data_doctor_password(username):
     conn = connect_database('doctor')
     cursor = conn.cursor()
-    cursor.execute('''SELECT * FROM patients WHERE username = ? ''', (username,))
+    cursor.execute('''SELECT * FROM doctors WHERE username = ? ''', (username,))
     row = cursor.fetchone()
     if row is not None:
         return row[2], row[3]
@@ -173,12 +173,13 @@ def drop_table_doctor(table_name):
 if __name__ == '__main__':
     create_tables()
 
-    username = 'DR.TIANYI'
-    password = 'password123'  # Replace with actual password
+    username = 'Dr.TI'
+    password = 'Password123！'  # Replace with actual password
     encrypted_username = encrypt_data(username)
     encrypted_password = encrypt_data(password)
     time = datetime.now() - timedelta(days=40)
-    login_database('doctor','insert',encrypted_username,encrypted_password)
-    change_time('patient', encrypted_username, time)
-    data, date = search_data_patient_password(encrypted_username)
-    print(decrypt_data(data), date)
+    login_database('doctor','search',encrypted_username,encrypted_password)
+    #change_time('patient', encrypted_username, time)
+    #change_user_password('patient', encrypted_username,encrypted_password)
+    #data, date = search_data_patient_password(encrypted_username)
+    #print(decrypt_data(data), date)

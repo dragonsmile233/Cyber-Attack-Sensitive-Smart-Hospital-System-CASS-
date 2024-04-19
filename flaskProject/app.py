@@ -402,7 +402,7 @@ def verify_pin():
                 # Password is incorrect, render login page with an error message
                 error_message = "Incorrect password. Please try again."
                 check_and_update_login_attempts(username, 400)
-                return render_template('login.html', error=error_message)
+                return render_template('doctor.html', error=error_message)
         # register page
         elif session.get('page') == 'register':
             username = encrypt_data(session.get('username'))
@@ -581,9 +581,7 @@ def change_password():
 
             # Validate password and confirm password
             username = session.get('username')
-            # valid, message = validate_password(username, password, confirm_password)
-            valid = True
-            message = '1'
+            valid, message = validate_password(username, password, confirm_password)
             if not valid:
                 # If passwords are not valid, render the change_password template with an error message
                 return render_template('change_password.html', type=session.get('type'),
@@ -639,8 +637,6 @@ def download_file():
 # 用于提供文件下载的路由
 
 
-
-# 主页路由，显示下载链接
 
 
 if __name__ == '__main__':

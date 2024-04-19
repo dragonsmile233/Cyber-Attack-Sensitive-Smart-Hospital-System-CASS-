@@ -160,9 +160,10 @@ def username_database(type, function, encrypted_data, email):
 if __name__ == '__main__':
 
     create_tables()
-    encrypted_data = encrypt_data('DR.TIANYI')
-    encrypted_email = encrypt_data('dragonsmile@gmail.com')
+    encrypted_data = encrypt_data('Dr.TI')
+    encrypted_email = encrypt_data('dragon@gmail.com')
     print(username_database('doctor', 'insert', encrypted_data, encrypted_email))
+    print(search_email_doctor(encrypted_data))
 
 
 
