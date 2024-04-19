@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Robot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <!-- Header with the title -->
+        <h1> Verify you are not a robot </h1>
+    </header>
+    <main>
+        <div class="container">
+
+            <!-- Form for CAPTCHA verification -->
+            <h2>Please enter the CAPTCHA code shown below:</h2>
+            <!-- Display error message if there's any -->
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            <form action="/verify" method="post">
+                <br>
+                <label for="captcha">CAPTCHA:</label>
+                <!-- Input field for the CAPTCHA code -->
+                <input type="text" id="captcha" name="captcha">
+                <!-- Hidden input field to store the CAPTCHA value -->
+                <input type="hidden" name="captcha_code" value="{{ captcha }}">
+                <!-- Image displaying the CAPTCHA -->
+                <img src="https://via.placeholder.com/150x50?text={{ captcha }}" alt="CAPTCHA Image">
+                <br>
+                <!-- Submit button for form submission -->
+                <button type="submit">Submit</button>
+            </form>
+
+            <!-- Button to return to the previous page -->
+            <button type="button" onclick="window.history.back();" class="button">Back</button>
+
+        </div>
+    </main>
+    <footer>
+        <!-- Footer with copyright information -->
+        <p>&copy; 2024 Security and Privacy Project. Group F.</p>
+    </footer>
+</body>
+</html>

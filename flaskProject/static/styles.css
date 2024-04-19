@@ -1,0 +1,95 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.error {
+    color: red;
+}
+
+/* Styles for the body element */
+body {
+    font-family: 'Arial', sans-serif;
+    /* Background gradient */
+    background: linear-gradient(45deg, bisque, lightblue, darkseagreen);
+    color: #fff; /* Set text color to white */
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    height: 100vh; /* Set body height to full viewport height */
+}
+
+/* Styles for the footer element */
+footer {
+    text-align: center;
+    color: blanchedalmond;
+    background: cadetblue;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999; /* Ensure footer appears in front of other content */
+}
+
+/* Styles for the header element */
+header {
+    position: fixed; /* Set header to fixed position */
+    top: 0; /* Position header at the top of the viewport */
+    width: 100%; /* Make header span the entire width */
+    color: blanchedalmond;
+    background: cadetblue; /* Header background color */
+    text-align: center; /* Center align content */
+    z-index: 999; /* Ensure header appears in front of other content */
+}
+
+/* Styles for the container element */
+.container {
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: cadetblue; /* Text color */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center align content */
+}
+
+/* Styles for headings */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Styles for form input elements */
+input[type="text"],
+input[type="password"],
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styles for buttons */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for message element */
+#message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #ff0000;
+}

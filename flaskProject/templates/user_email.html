@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Email</h1>
+    </header>
+    <main>
+        <div class="container">
+            <!-- Update the form action to match the route in Flask -->
+            <form action="{{ url_for('user_email') }}" method="post">
+                <h2>Email</h2>
+                {% if error %}
+                <p class="error">{{ error }}</p>
+                {% endif %}
+                <div class="input-group">
+                    <label for="email">User Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required style="width: 300px;">
+                </div>
+
+                <br> <!-- Add an empty line between the email input and the button -->
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Security and Privacy Project. Group F.</p>
+    </footer>
+</body>
+</html>

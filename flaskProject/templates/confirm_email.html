@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Email</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* CSS to make the buttons inline */
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Adjust this property based on your preference */
+            margin-top: 10px; /* Add margin for spacing */
+        }
+        .button-container button {
+            flex: 1; /* Distribute space evenly among buttons */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Please Confirm your email address</h1>
+    </header>
+    <main>
+        <div class="container">
+
+            <h2> Hello {{ username }}</h2>
+            <p> Your email address: {{ email }}</p>
+
+            {% if message %}
+            <p style="color: {% if message == 'Pin has already sent to your email' %}green{% else %}red{% endif %};">{{ message }}</p>
+            {% endif %}
+
+            <form action="/verify_pin" method="post">
+                <input type="text" name="pin" placeholder="Enter PIN">
+                <button type="submit">Verify PIN</button>
+            </form>
+            <div class="button-container">
+                <form action="/generate_pin" method="get">
+                    <button type="submit">Send PIN</button>
+                </form>
+                <button type="button" onclick="window.location.href='{{ url_for('logout') }}'" class="button">Log Out</button>
+                <button type="button" onclick="window.history.back();" class="button">Back</button>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Security and Privacy Project. Group F.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_home.css') }}">
+    <style>
+        /* Center the content */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Adjust this value based on your needs */
+        }
+
+        /* Center the sidebar */
+
+        /* Set fixed size and center the content */
+        .content-section {
+            max-width: 400px; /* Set a fixed maximum width for the content */
+            margin: 0 auto; /* Center the content horizontally */
+            display: none; /* Hide all doctor information sections initially */
+        }
+
+        #group-f-members {
+            display: block; /* Display the "Group F Members" section by default */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        {% if type == 'patient' or type == 'doctor' %}
+            <a class="login-button" href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a class="login-button" href="{{ url_for('index') }}">Login</a>
+        {% endif %}
+        <nav>
+            <ul>
+                <a href="{{ url_for('home') }}" class="home">Home</a>
+                <a href="{{ url_for('contact_us') }}" class="contact_us">Contact us</a>
+                <a href="{{ url_for('patient_page') }}" class="patient_home">Patient Home</a>
+                <a href="{{ url_for('doctor_page') }}" class="doctor_page">System Activity </a>
+                <a href="{{ url_for('change_password') }}" class="change_password">Change Password</a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <aside class="sidebar">
+                <ul>
+                    <h2>Group F Members</h2> <!-- Display this by default -->
+                    <!-- Clicking on these will hide Group F Members and display corresponding doctor's information -->
+                    <li><a href="#doctor-info1">Tianyi Xu</a></li>
+                    <li><a href="#doctor-info2">Yue Hu</a></li>
+                    <li><a href="#doctor-info3">Mariia Zaridze</a></li>
+                </ul>
+            </aside>
+            <!-- Doctor information sections -->
+            <section id="group-f-members" class="content-section">
+                <h2>Group F Members</h2>
+                <p>This section displays the members of Group F.</p>
+            </section>
+            <section id="doctor-info1" class="content-section">
+                <h2>Tianyi Xu</h2>
+                <p><strong>Programme of study:</strong> MSc Telecommunications </p>
+                <p><strong>Undergraduate / Postgraduate:</strong> PG </p>
+                <p><strong>Year level:</strong> 1 </p>
+                <p><strong>Email:</strong> tianyi.xu.23@ucl.ac.uk</p>
+                <p><strong>Phone:</strong> +(44) xxxxxxxxx </p>
+                <p><strong>Timezone:</strong> Europe/London </p>
+                <p><strong>address:</strong> xxxxxxxxx </p>
+            </section>
+            <section id="doctor-info2" class="content-section">
+                <h2>Yue Hu</h2>
+                <p><strong>Programme of study:</strong> MSc Integrated Machine Learning Systems </p>
+                <p><strong>Undergraduate / Postgraduate:</strong> PG </p>
+                <p><strong>Year level:</strong> 1 </p>
+                <p><strong>Email:</strong> yue.hu.23@ucl.ac.uk</p>
+                <p><strong>Phone:</strong> +(44) xxxxxxxxx </p>
+                <p><strong>Timezone:</strong> Europe/London </p>
+                <p><strong>address:</strong> xxxxxxxxx </p>
+            </section>
+            <section id="doctor-info3" class="content-section">
+                <h2>Mariia Zaridze</h2>
+                <p><strong>Programme of study:</strong> MSc xxxxx </p>
+                <p><strong>Undergraduate / Postgraduate:</strong> PG </p>
+                <p><strong>Year level:</strong> 1 </p>
+                <p><strong>Email:</strong> m.zaridze@ucl.ac.uk</p>
+                <p><strong>Phone:</strong> +(44) xxxxxxxxx </p>
+                <p><strong>Timezone:</strong> Europe/London </p>
+                <p><strong>address:</strong> xxxxxxxxx </p>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Security and Privacy Project. Group F.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebarLinks = document.querySelectorAll('.sidebar a');
+            const allDoctorInfo = document.querySelectorAll('.content-section'); // Get all doctor info sections
+
+            sidebarLinks.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const doctorId = this.getAttribute('href').substring(1); // Get the ID of the clicked link
+                    const doctorInfo = document.getElementById(doctorId); // Get the corresponding doctor info section
+
+                    // Hide all doctor info sections
+                    allDoctorInfo.forEach(function (info) {
+                        info.style.display = 'none';
+                    });
+
+                    // Show the clicked doctor info section
+                    doctorInfo.style.display = 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

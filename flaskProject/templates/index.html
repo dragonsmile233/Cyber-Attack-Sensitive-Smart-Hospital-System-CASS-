@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Healthcare System</title>
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles for the body element */
+        body {
+            font-family: 'Arial', sans-serif;
+            /* Background gradient */
+            background: linear-gradient(45deg, bisque, lightblue, darkseagreen);
+            color: #fff; /* Set text color to white */
+            display: flex;
+            justify-content: center; /* Horizontally center content */
+            align-items: center; /* Vertically center content */
+            height: 100vh; /* Set body height to full viewport height */
+        }
+
+        /* Styles for the footer element */
+        footer {
+            text-align: center;
+            color: blanchedalmond;
+            background: cadetblue;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 999; /* Ensure footer appears in front of other content */
+        }
+
+        /* Styles for the header element */
+        header {
+            position: fixed; /* Set header to fixed position */
+            top: 0; /* Position header at the top of the viewport */
+            width: 100%; /* Make header span the entire width */
+            color: blanchedalmond;
+            background: cadetblue; /* Header background color */
+            text-align: center; /* Center align content */
+            z-index: 999; /* Ensure header appears in front of other content */
+        }
+
+        /* Styles for the container element */
+        .container {
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            color: cadetblue; /* Text color */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center align content */
+        }
+
+        /* Styles for headings */
+        h1 {
+            margin-bottom: 20px;
+        }
+
+
+        /* Styles for buttons */
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+
+        /* Button hover effect */
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styles for message element */
+        #message {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Group F Security and Privacy assignment</h1>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Welcome to Our Healthcare System</h2>
+            <a href="{{ url_for('login') }}" class="button">Login</a>
+            <a href="{{ url_for('register') }}" class="button">Register</a>
+            <a href="{{ url_for('doctor') }}" class="button">Doctor & Admission</a>
+            <a href="{{ url_for('home') }}" class="button">Home</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Security and Privacy Project. Group F.</p>
+    </footer>
+</body>
+</html>

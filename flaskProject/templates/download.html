@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download System Activity Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_home.css') }}">
+</head>
+<body>
+    <header>
+        <!-- Buttons for user authentication -->
+        {% if type == 'patient' or type == 'doctor' %}
+            <a class="login-button" href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a class="login-button" href="{{ url_for('index') }}">Login</a>
+        {% endif %}
+        <h1>Dashboard</h1>
+    </header>
+    <main>
+        <div class="container">
+            <section class="sidebar">
+                <ul>
+                    <h2>Sidebar</h2>
+                    <li><a href="{{ url_for('home') }}" class="home">Home</a></li>
+                    <li><a href="{{ url_for('contact_us') }}" class="contact_us">Contact Us</a></li>
+                    <li><a href="{{ url_for('patient_page') }}" class="patient_page">Patient Home</a></li>
+                    <li><a href="{{ url_for('doctor_page') }}" class="doctor_page">System Activity</a></li>
+                    <li><a href="{{ url_for('change_password') }}" class="change_password">Change Password</a></li>
+                </ul>
+            </section>
+            <section class="content">
+                <form>
+                    <h2>Download System Activity Files</h2>
+                    {% if error %}
+                        <p class="error">{{ error }}</p>
+                    {% endif %}
+                    {% if message %}
+                        <p class="message">{{ message }}</p>
+                    {% endif %}
+
+                    <p>Click the button below to download system activity file.</p>
+                    <button type="button" onclick="window.location.href='{{ url_for('download_file') }}'" class="button">Download</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Security and Privacy Project. Group F.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+--------------------------------------------------Explain params-------------------------------------------------- 
+
+ proto: tcp 
+ sbytes: Source to destination bytes 
+ dbytes: extract_dbytes(pkt) #Destination to source bytes 
+ sttl: Source to destination time to live 
+ dttl: Destination to source time to live 
+ sloss: Source packets retransmitted or dropped 
+ dloss: Destination packets retransmitted or dropped 
+ service: http, ftp, ssh, dns ..,else (-) 
+ is_ftp_login : If the ftp session is accessed by user and password then 1 else 0. 
+ ct_ftp_cmd : No of flows that has a command in ftp session. 
+ ct_srv_src : No. of connections that contain the same service (14) and source address (1) in 100 connections according to the last time (26). 
+ ct_srv_dst : No. of connections that contain the same service (14) and destination address (3) in 100 connections according to the last time (26). 
+ ct_dst_ltm : No. of connections of the same destination address (3) in 100 connections according to the last time (26). 
+ ct_src_ltm : No. of connections of the same source address (1) in 100 connections according to the last time (26). 
+ ct_src_dport_ltm : No of connections of the same source address (1) and the destination port (4) in 100 connections according to the last time (26). 
+ ct_dst_sport_ltm : No of connections of the same destination address (3) and the source port (2) in 100 connections according to the last time (26). 
+ ct_dst_src_ltm: No of connections of the same source (1) and the destination (3) address in in 100 connections according to the last time (26).
+ Sload : Source bits per second 
+ Dload : Destination bits per second 
+ Spkts : Source to destination packet count 
+ Dpkts : Destination to source packet count 
+ swin : Source TCP window advertisement 
+ dwin : Destination TCP window advertisement 
+ stcpb : Source TCP sequence number 
+ dtcpb : Destination TCP sequence number 
+ smeansz : Mean of the flow packet size transmitted by the src 
+ dmeansz : Mean of the flow packet size transmitted by the dst 
+ trans_depth : the depth into the connection of http request/response transaction 
+ res_bdy_len : The content size of the data transferred from the server¡¯s http service 
+ Sjit : Source jitter (mSec) 
+ Djit : Destination jitter (mSec) 
+ Stime : record start time 
+ Ltime : record last time 
+ Sintpkt : Source inter-packet arrival time (mSec) 
+ Dintpkt : Destination inter-packet arrival time (mSec) 
+ tcprtt : The sum of ¡¯synack¡¯ and ¡¯ackdat¡¯ of the TCP. 
+ synack : The time between the SYN and the SYN_ACK packets of the TCP. 
+ ackdat : The time between the SYN_ACK and the ACK packets of the TCP. 
+ is_sm_ips_ports : If source (1) equals to destination (3)IP addresses and port numbers (2)(4) are equal, this variable takes value 1 else 0 
+ ct_state_ttl : No. for each state (6) according to specific range of values for source/destination time to live (10) (11). 
+ ct_flw_http_mthd : No. of flows that has methods such as Get and Post in http service.
+--------------------------------------------------Packets captured-------------------------------------------------- 
+
+{'proto': 'tcp', 'state': <Flag 16 (A)>, 'sbytes': 21, 'dbytes': 1, 'sttl': 64, 'dttl': 64, 'is_ftp_login': 0, 'ct_ftp_cmd': 0, 'ct_srv_src': 1, 'ct_srv_dst': 1, 'ct_dst_ltm': 1, 'ct_src_ltm': 1, 'ct_src_dport_ltm': 1, 'ct_dst_sport_ltm': 1, 'ct_dst_src_ltm': 1}
+{'proto': 'tcp', 'state': <Flag 16 (A)>, 'sbytes': 32, 'dbytes': 0, 'sttl': 121, 'dttl': 121, 'is_ftp_login': 0, 'ct_ftp_cmd': 0, 'ct_srv_src': 1, 'ct_srv_dst': 1, 'ct_dst_ltm': 1, 'ct_src_ltm': 1, 'ct_src_dport_ltm': 1, 'ct_dst_sport_ltm': 1, 'ct_dst_src_ltm': 1}
+{'proto': 'tcp', 'state': <Flag 2 (S)>, 'sbytes': 32, 'dbytes': 0, 'sttl': 64, 'dttl': 64, 'is_ftp_login': 0, 'ct_ftp_cmd': 0, 'ct_srv_src': 1, 'ct_srv_dst': 1, 'ct_dst_ltm': 1, 'ct_src_ltm': 1, 'ct_src_dport_ltm': 1, 'ct_dst_sport_ltm': 1, 'ct_dst_src_ltm': 1}
+{'proto': 'tcp', 'state': <Flag 18 (SA)>, 'sbytes': 32, 'dbytes': 0, 'sttl': 44, 'dttl': 44, 'is_ftp_login': 0, 'ct_ftp_cmd': 0, 'ct_srv_src': 1, 'ct_srv_dst': 1, 'ct_dst_ltm': 1, 'ct_src_ltm': 1, 'ct_src_dport_ltm': 1, 'ct_dst_sport_ltm': 1, 'ct_dst_src_ltm': 1}
+{'proto': 'tcp', 'state': <Flag 16 (A)>, 'sbytes': 20, 'dbytes': 0, 'sttl': 64, 'dttl': 64, 'is_ftp_login': 0, 'ct_ftp_cmd': 0, 'ct_srv_src': 1, 'ct_srv_dst': 1, 'ct_dst_ltm': 1, 'ct_src_ltm': 1, 'ct_src_dport_ltm': 1, 'ct_dst_sport_ltm': 1, 'ct_dst_src_ltm': 1}

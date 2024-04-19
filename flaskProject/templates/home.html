@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_home.css') }}">
+</head>
+
+<body>
+    <header>
+        {% if type == 'patient' or type == 'doctor' %}
+            <a class="login-button" href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a class="login-button" href="{{ url_for('index') }}">Login</a>
+        {% endif %}
+    <h1>Homepage</h1>
+    </header>
+    <main>
+        <div class="container">
+            <section class="sidebar">
+                <ul>
+                    <h2>Sidebar</h2>
+                    <li><a href="{{ url_for('home') }}" class="home">Home</a></li>
+                    <li><a href="{{ url_for('contact_us') }}" class="contact_us">Contact Us</a></li>
+                    <li><a href="{{ url_for('patient_page') }}" class="patient_page">Patient Home</a></li>
+                    <li><a href="{{ url_for('doctor_page') }}" class="doctor_page">System Activity </a></li>
+                    <li><a href="{{ url_for('change_password') }}" class="change_password">Change Password</a></li>
+                </ul>
+            </section>
+            <section class="content">
+                <form action="{{ url_for('home') }}" method="post">
+                    <h2>Security and Privacy Project for Group F</h2>
+                    <a>Group member: Tianyi Xu, Yue Hu and Marria Zaridze</a>
+                    <br>
+                    <a>We detail the construction of our cyber-attack-sensitive smart hospital system (CASS). The most common threats include database leaks, unauthorized access, and malicious attacks such as DoS attacks leading to server crashes. Therefore, this project will be designed based on these aspects.</a>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Security and Privacy Project. Group F.</p>
+    </footer>
+</body>
+</html>

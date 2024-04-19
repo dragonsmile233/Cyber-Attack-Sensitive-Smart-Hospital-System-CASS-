@@ -1,0 +1,236 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles for the body element */
+body {
+    font-family: 'Arial', sans-serif;
+    /* Background gradient */
+    background: linear-gradient(45deg, bisque, lightblue, darkseagreen);
+    color: #fff; /* Set text color to white */
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    height: 100vh; /* Set body height to full viewport height */
+}
+
+/* Styles for the footer element */
+footer {
+    text-align: center;
+    color: blanchedalmond;
+    background: cadetblue;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999; /* Ensure footer appears in front of other content */
+}
+
+/* Styles for the header element */
+header {
+    position: fixed; /* Set header to fixed position */
+    top: 0; /* Position header at the top of the viewport */
+    width: 100%; /* Make header span the entire width */
+    color: blanchedalmond;
+    background: cadetblue; /* Header background color */
+    text-align: center; /* Center align content */
+    z-index: 999; /* Ensure header appears in front of other content */
+}
+
+
+/* Styles for the container element */
+.container {
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: cadetblue; /* Text color */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center align content */
+}
+
+/* Styles for headings */
+h1 {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: cadetblue;
+}
+.login-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #fff; /* Changed background color to white */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar {
+    margin-right: 20px; /* Add some space between sidebar and main content */
+    width: 200px; /* Adjust the width of the sidebar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Styles for buttons */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for message element */
+#message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+/* Styles for the sidebar */
+.sidebar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333; /* Sidebar background color */
+    padding-top: 60px; /* Space for the header */
+}
+
+/* Styles for sidebar links */
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff; /* Text color */
+    display: block;
+}
+
+/* Active/current link */
+.sidebar a.active {
+    background-color: beige; /* Background color for active link */
+}
+
+/* Hover effect for sidebar links */
+.sidebar a:hover {
+    background-color: #555; /* Background color on hover */
+}
+
+
+/* Styles for main content */
+.main-content {
+    margin-left: 250px; /* Adjust margin to accommodate sidebar width */
+    padding: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.error {
+    color: red;
+}
+
+/* Styles for the body element */
+body {
+    font-family: 'Arial', sans-serif;
+    /* Background gradient */
+    background: linear-gradient(45deg, bisque, lightblue, darkseagreen);
+    color: #fff; /* Set text color to white */
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    height: 100vh; /* Set body height to full viewport height */
+}
+
+/* Styles for the footer element */
+footer {
+    text-align: center;
+    color: blanchedalmond;
+    background: cadetblue;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999; /* Ensure footer appears in front of other content */
+}
+
+/* Styles for the header element */
+header {
+    position: fixed; /* Set header to fixed position */
+    top: 0; /* Position header at the top of the viewport */
+    width: 100%; /* Make header span the entire width */
+    color: blanchedalmond;
+    background: cadetblue; /* Header background color */
+    text-align: center; /* Center align content */
+    z-index: 999; /* Ensure header appears in front of other content */
+}
+
+/* Styles for the container element */
+.container {
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: cadetblue; /* Text color */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center align content */
+}
+
+/* Styles for headings */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Styles for form input elements */
+input[type="text"],
+input[type="password"],
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styles for buttons */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for message element */
+#message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #ff0000;
+}

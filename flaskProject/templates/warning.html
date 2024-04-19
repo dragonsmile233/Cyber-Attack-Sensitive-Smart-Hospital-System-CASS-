@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warning</title>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<style>
+    .login-button {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        padding: 10px 20px;
+        background-color: #fff; /* Changed background color to white */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+    }
+</style>
+<body>
+    <header>
+        {% if type == 'patient' or type == 'doctor' %}
+            <a class="login-button" href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a class="login-button" href="{{ url_for('index') }}">Login</a>
+        {% endif %}
+    <h1>Prompt: Please Update Your Password</h1>
+    </header>
+    <main>
+        <div class="container">
+
+            <!-- Form for login -->
+            <h2> Dear {{ username }}:</h2>
+            <br>
+            <p> Your password was last modified at {{ time }}. To ensure the security of your account, please update your password.</p>
+
+            <!-- Logout button -->
+            <br>
+            <button type="button" onclick="window.location.href='{{ url_for('change_password') }}'" class="button">Ok</button>
+
+    </div>
+    </main>
+    <footer>
+        <!-- Footer with copyright information -->
+        <p>&copy; 2024 Security and Privacy Project. Group F.</p>
+    </footer>
+</body>
+</html>

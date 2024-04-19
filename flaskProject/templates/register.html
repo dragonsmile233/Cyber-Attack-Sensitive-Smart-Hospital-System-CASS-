@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        label {
+            width: 150px; /* Adjust label width as needed */
+            margin-right: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            flex: 1;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px; /* Increase font size for email */
+            /* Adjust other styles as needed */
+        }
+        button#pin-button {
+            width: calc(25% - 10px); /* Adjust button width */
+            margin-left: 10px;
+            /* Add other styles as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Healthcare System</h1>
+    </header>
+    <main>
+        <div class="container">
+            <form action="{{ url_for('register') }}" method="post">
+                <h2>Login to Access Your Account</h2>
+                {% if error %}
+                <p class="error">{{ error }}</p>
+                {% endif %}
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" style="width: 75%;" required>
+                </div>
+                <button type="submit">Register</button>
+                <button type="button" onclick="window.location.href='{{ url_for('login') }}'" class="button">Back</button>
+                <button type="button" onclick="window.location.href='{{ url_for('index') }}'" class="button">Log Out</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Security and Privacy Project. Group F.</p>
+    </footer>
+</body>
+</html>

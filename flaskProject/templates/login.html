@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Healthcare System</h1>
+    </header>
+    <main>
+        <div class="container">
+            <form action="{{ url_for('login') }}" method="post">
+                <h2>Login to Access Your Account</h2>
+                {% if error %}
+                <p class="error">{{ error }}</p>
+                {% endif %}
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <a href="{{ url_for('forget_password') }}" class="forget-password">Forgot your password?</a>
+                <button type="submit">Login</button>
+                <button type="button" onclick="window.location.href='{{ url_for('doctor') }}'" class="button">Doctor & Admission</button>
+                <button type="button" onclick="window.location.href='{{ url_for('register') }}'" class="button">Register</button>
+                <button type="button" onclick="window.location.href='{{ url_for('index') }}'" class="button">Log Out</button>
+
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Security and Privacy Project. Group F.</p>
+    </footer>
+</body>
+</html>
