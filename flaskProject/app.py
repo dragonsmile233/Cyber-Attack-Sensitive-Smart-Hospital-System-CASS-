@@ -636,11 +636,6 @@ def download_file():
     # Send the file as an attachment for download
     return send_file(file_path, as_attachment=True)
 
-# 用于提供文件下载的路由
-
-
-
-# 主页路由，显示下载链接
 
 
 if __name__ == '__main__':
