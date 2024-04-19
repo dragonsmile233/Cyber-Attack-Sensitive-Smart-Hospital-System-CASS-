@@ -54,7 +54,7 @@ def search_data_patient_password(username):
 def search_data_doctor_password(username):
     conn = connect_database('doctor')
     cursor = conn.cursor()
-    cursor.execute('''SELECT * FROM patients WHERE username = ? ''', (username,))
+    cursor.execute('''SELECT * FROM doctors WHERE username = ? ''', (username,))
     row = cursor.fetchone()
     if row is not None:
         return row[2], row[3]
